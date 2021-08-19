@@ -5,7 +5,7 @@
 #include "PlummerSphereIC.h"
 static long double pi = (long double) 4.0 *atan(1.0);
 
-void PlumIC(int seed, const int Num, long double ZMass, long double Pmass, long double& TKE, Two_D_Array &PositionsL,Two_D_Array & VeL, Two_D_Array &PositionsS, Two_D_Array &VeS)
+void PlumIC(const int seed, const int Num, const long double ZMass, const long double Pmass, long double& TKE, Two_D_Array &PositionsL,Two_D_Array & VeL, Two_D_Array &PositionsS, Two_D_Array &VeS)
 {
     long double Rmass;
     long double radius=1000;
