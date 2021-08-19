@@ -9,16 +9,18 @@ struct ErrorValues
 {
     long double error=0, eNorm=0, rErr=0;
     void Regression();
-    void AnalyseVector(const int Num, Two_D_Array &Small, Two_D_Array &Large);
-    void AnalysePotential(const int Num, long double pMass, Two_D_Array &PosS, Two_D_Array &PosL,Two_D_Array &VeS, Two_D_Array &VeL);
-    void AnalyseTotalEnergy(const int Num, long double pMass, One_D_Array &PES, One_D_Array &PEL, Two_D_Array &VeS, Two_D_Array &VeL);
+    void AnalyseVector(int Num, const Two_D_Array &Small, const Two_D_Array &Large);
+    void AnalysePotential(int Num, long double pMass, const Two_D_Array &PosS,
+                          const Two_D_Array &PosL, const Two_D_Array &VeS, const Two_D_Array &VeL);
+    void AnalyseTotalEnergy(int Num, long double pMass, const One_D_Array &PES,
+                            const One_D_Array &PEL,const Two_D_Array &VeS, const Two_D_Array &VeL);
 };
 
 struct AnalyserValues
 {
     ErrorValues C,V,P,E; //naming should be adjusted
-    void Analyser(const int Num, long double pMass,Two_D_Array &PosL, Two_D_Array &PosS,
-                  Two_D_Array &VeL, Two_D_Array &VeS, One_D_Array PEL, One_D_Array PES);
+    void Analyser(int Num, long double pMass,const Two_D_Array &PosL, const Two_D_Array &PosS,
+                  const Two_D_Array &VeL, const Two_D_Array &VeS, const One_D_Array &PEL, const One_D_Array &PES);
 };
 
 #endif //MAIN_CPP_ANALYSER_H

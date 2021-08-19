@@ -7,7 +7,7 @@ void ErrorValues::Regression()
 {
     rErr = sqrt(error/eNorm);
 }
-void ErrorValues::AnalyseVector(const int Num, Two_D_Array &Small, Two_D_Array &Large)
+void ErrorValues::AnalyseVector(const int Num, const Two_D_Array &Small, const Two_D_Array &Large)
 {
     for (int i = 0; i < Num; ++i)
     {
@@ -19,7 +19,8 @@ void ErrorValues::AnalyseVector(const int Num, Two_D_Array &Small, Two_D_Array &
     }
     this->Regression();
 }
-void ErrorValues::AnalysePotential(const int Num, long double pMass, Two_D_Array &PosS, Two_D_Array &PosL, Two_D_Array &VeS, Two_D_Array &VeL)
+void ErrorValues::AnalysePotential(const int Num, long double pMass, const Two_D_Array &PosS,
+                                   const Two_D_Array &PosL, const Two_D_Array &VeS, const Two_D_Array &VeL)
 {
     long double PXS, PYS, PZS, PXL, PYL, PZL;
     for (int i = 0; i < Num; ++i)
@@ -37,7 +38,8 @@ void ErrorValues::AnalysePotential(const int Num, long double pMass, Two_D_Array
     }
     this->Regression();
 }
-void ErrorValues::AnalyseTotalEnergy(const int Num, long double pMass, One_D_Array &PES, One_D_Array &PEL, Two_D_Array &VeS, Two_D_Array &VeL)
+void ErrorValues::AnalyseTotalEnergy(const int Num, long double pMass, const One_D_Array &PES,
+                                     const One_D_Array &PEL,const Two_D_Array &VeS, const Two_D_Array &VeL)
 {
     long double EnergyS, EnergyL;
     for (int i = 0; i < Num; ++i)
@@ -55,8 +57,8 @@ void ErrorValues::AnalyseTotalEnergy(const int Num, long double pMass, One_D_Arr
     this->Regression();
 }
 
-void AnalyserValues::Analyser(const int Num, long double pMass,Two_D_Array &PosL, Two_D_Array &PosS,
-              Two_D_Array &VeL, Two_D_Array &VeS, One_D_Array PEL, One_D_Array PES)
+void AnalyserValues::Analyser(const int Num, long double pMass,const Two_D_Array &PosL, const Two_D_Array &PosS,
+                              const Two_D_Array &VeL,const Two_D_Array &VeS,const One_D_Array &PEL,const One_D_Array &PES)
 {
     C.AnalyseVector(Num, PosS, PosL);
     V.AnalyseVector(Num, VeS, VeL);
