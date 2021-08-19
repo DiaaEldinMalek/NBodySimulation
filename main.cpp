@@ -29,7 +29,7 @@ int main() {
     long double dT =1.0;
     int NLeap = 2;
 
-    PlumIC(Num, ZMass, pMass, TotalKineticEnergy, PositionL, VeL, PositionS, VeS);
+    PlumIC(0, Num, ZMass, pMass, TotalKineticEnergy, PositionL, VeL, PositionS, VeS);
     std::cout <<time(0)-CodeTime;
     return 0;
 }
