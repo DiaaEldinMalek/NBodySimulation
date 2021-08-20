@@ -21,7 +21,7 @@ void PlumIC(const int seed, const int Num, const long double ZMass, const long d
     srand(seed);
     std::ofstream myfile;
     myfile.open("PlummerSphereInitial.txt");
-    srand(0);
+    srand(seed);
     int linew1=10,linew2=10;
     for (int i = 0; i < Num; ++i)
     {
@@ -66,13 +66,13 @@ void PlumIC(const int seed, const int Num, const long double ZMass, const long d
         }
     }
     double SPos= (3.0* pi)/16.0;
-    double SVel= sqrt(1.0/SPos); //ZMass= 1
+    double SVel= sqrt(ZMass/SPos); //ZMass= 1
     for (int i = 0; i < Num; ++i) {
         for (int j = 0; j < 3; ++j) {
-            PositionsL[i][j] =SPos*(PositionsL[i][j]- CM[j]/1.0); //ZMass= 1
-            PositionsS[i][j] =SPos*(PositionsS[i][j]- CM[j]/1.0); //ZMass= 1
-            VeL[i][j] =SVel*(VeL[i][j]-CMTrajectory[j]/1.0);
-            VeS[i][j] =SVel*(VeS[i][j]-CMTrajectory[j]/1.0);
+            PositionsL[i][j] =SPos*(PositionsL[i][j]- CM[j]/ZMass); //ZMass= 1
+            PositionsS[i][j] =SPos*(PositionsS[i][j]- CM[j]/ZMass); //ZMass= 1
+            VeL[i][j] =SVel*(VeL[i][j]-CMTrajectory[j]/ZMass);
+            VeS[i][j] =SVel*(VeS[i][j]-CMTrajectory[j]/ZMass);
             TKE += 0.5 * Pmass* VeS[i][j] * VeS [i][j];
         }
         myfile << PositionsL[i][0]<<std::setw(linew1-4) << "" << std::setw(linew2)
