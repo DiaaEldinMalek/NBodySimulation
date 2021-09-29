@@ -60,8 +60,8 @@ void ErrorValues::AnalyseTotalEnergy(const int Num, long double pMass, const One
 void AnalyserValues::Analyser(const int Num, long double pMass,const Two_D_Array &PosL, const Two_D_Array &PosS,
                               const Two_D_Array &VeL,const Two_D_Array &VeS,const One_D_Array &PEL,const One_D_Array &PES)
 {
-    C.AnalyseVector(Num, PosS, PosL);
-    V.AnalyseVector(Num, VeS, VeL);
-    P.AnalysePotential(Num, pMass, PosL, PosS, VeL, VeS);
-    E.AnalyseTotalEnergy(Num, pMass, PES, PEL, VeL, VeS);
+    C.AnalyseVector(Num, PosS, PosL); //C error values are the ones related to difference in position between small and large step trials
+    V.AnalyseVector(Num, VeS, VeL); //V error values measure velocity errors
+    P.AnalysePotential(Num, pMass, PosL, PosS, VeL, VeS); //P error values measure potential energy errors
+    E.AnalyseTotalEnergy(Num, pMass, PES, PEL, VeL, VeS); // E error values measure total energy errors
 }
